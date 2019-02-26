@@ -19,4 +19,8 @@ class IngredientTest < Minitest::Test
     assert_equal "oz", @cheese.unit
   end
 
+  def test_it_has_calories
+    assert_equal 50, @cheese.calories
+  end
+
 end
