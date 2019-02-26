@@ -32,6 +32,13 @@ class CookBookTest < Minitest::Test
     assert_equal [], @cookbook.recipes
   end
 
+  def test_it_can_add_recipes
+    @cookbook.add_recipe(@mac_and_cheese)
+    @cookbook.add_recipe(@burger)
+
+    assert_equal [@mac_and_cheese, @burger], @cookbook.recipes
+  end
+
   def test_it_can_create_summary_of_all_recipes
     skip
     @cookbook.add_recipe(@mac_and_cheese)
