@@ -40,7 +40,6 @@ class CookBookTest < Minitest::Test
   end
 
   def test_it_can_create_summary_of_all_recipes
-    skip
     @cookbook.add_recipe(@mac_and_cheese)
     @cookbook.add_recipe(@burger)
 
