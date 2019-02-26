@@ -30,4 +30,12 @@ class Recipe
       amount: "#{amount_required(ingredient)} #{ingredient.unit}" }
   end
 
+  def all_ingredients_summary
+    ingredients_sorted = ingredients.sort_by { |ingredient|
+      ingredient.calories * amount_required(ingredient)
+    }.reverse
+
+    ingredients_sorted.map { |ingredient| ingredient_summary(ingredient) }
+  end
+
 end
