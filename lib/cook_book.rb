@@ -9,4 +9,8 @@ class CookBook
     recipes << recipe
   end
 
+  def summary
+    recipes.map { |recipe| recipe.recipe_summary }
+  end
+
 end
