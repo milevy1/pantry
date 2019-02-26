@@ -24,4 +24,8 @@ class CookBookTest < Minitest::Test
     @burger.add_ingredient(@bun, 100)
   end
 
+  def test_it_exists
+    assert_instance_of CookBook, @cookbook
+  end
+
 end
