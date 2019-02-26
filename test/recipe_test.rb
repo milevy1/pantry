@@ -57,4 +57,14 @@ class RecipeTest < Minitest::Test
     assert_equal 440, @mac_and_cheese.total_calories
   end
 
+  def test_create_summary_of_recipe
+    expected = { :name => "Mac and Cheese",
+                 :details => { :ingredients => [ { :ingredient => "Macaroni",
+                                                   :amount => "8 oz" },
+                                                 { :ingredient => "Cheese",
+                                                   :amount => "2 C" } ],
+                               :total_calories => 440 } }
+    assert_equal expected, @mac_and_cheese.summary
+  end
+
 end
