@@ -11,4 +11,8 @@ class IngredientTest < Minitest::Test
     assert_instance_of Ingredient, @cheese
   end
 
+  def test_it_has_a_name
+    assert_equal "Cheese", @cheese.name    
+  end
+
 end
