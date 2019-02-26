@@ -25,4 +25,9 @@ class Recipe
     end
   end
 
+  def ingredient_summary(ingredient)
+    { ingredient: ingredient.name,
+      amount: "#{amount_required(ingredient)} #{ingredient.unit}" }
+  end
+
 end
