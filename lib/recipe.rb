@@ -25,4 +25,27 @@ class Recipe
     end
   end
 
+  def ingredient_summary(ingredient)
+    { ingredient: ingredient.name,
+      amount: "#{amount_required(ingredient)} #{ingredient.unit}" }
+  end
+
+  def all_ingredients_summary
+    ingredients_sorted = ingredients.sort_by { |ingredient|
+      ingredient.calories * amount_required(ingredient)
+    }.reverse
+
+    ingredients_sorted.map { |ingredient| ingredient_summary(ingredient) }
+  end
+
+  def recipe_summary
+    {
+      name: name,
+      details: {
+                ingredients: all_ingredients_summary,
+                total_calories: total_calories
+                }
+    }
+  end
+
 end

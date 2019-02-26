@@ -57,4 +57,40 @@ class RecipeTest < Minitest::Test
     assert_equal 440, @mac_and_cheese.total_calories
   end
 
+  def test_create_ingredient_summary
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
+
+    expected = { :ingredient => "Macaroni",
+                 :amount => "8 oz" }
+
+    assert_equal expected, @mac_and_cheese.ingredient_summary(@mac)
+  end
+
+  def test_create_all_ingredients_summary_sorted_by_recipe_calories
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
+
+    expected = [ { :ingredient => "Macaroni",
+                   :amount => "8 oz" },
+                 { :ingredient => "Cheese",
+                   :amount => "2 C" } ]
+
+    assert_equal expected, @mac_and_cheese.all_ingredients_summary
+  end
+
+  def test_create_recipe_summary
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
+
+    expected = { :name => "Mac and Cheese",
+                 :details => { :ingredients => [ { :ingredient => "Macaroni",
+                                                   :amount => "8 oz" },
+                                                 { :ingredient => "Cheese",
+                                                   :amount => "2 C" } ],
+                               :total_calories => 440 } }
+                               
+    assert_equal expected, @mac_and_cheese.recipe_summary
+  end
+
 end
