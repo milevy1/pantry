@@ -38,4 +38,14 @@ class Recipe
     ingredients_sorted.map { |ingredient| ingredient_summary(ingredient) }
   end
 
+  def recipe_summary
+    {
+      name: name,
+      details: {
+                ingredients: all_ingredients_summary,
+                total_calories: total_calories
+                }
+    }
+  end
+
 end
