@@ -60,7 +60,7 @@ class RecipeTest < Minitest::Test
   def test_create_ingredient_summary
     @mac_and_cheese.add_ingredient(@cheese, 2)
     @mac_and_cheese.add_ingredient(@mac, 8)
-    
+
     expected = { :ingredient => "Macaroni",
                  :amount => "8 oz" }
 
@@ -68,7 +68,6 @@ class RecipeTest < Minitest::Test
   end
 
   def test_create_summary_of_recipe
-    skip
     expected = { :name => "Mac and Cheese",
                  :details => { :ingredients => [ { :ingredient => "Macaroni",
                                                    :amount => "8 oz" },
